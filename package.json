@@ -1,0 +1,68 @@
+{
+  "name": "@pwngh/economy-ops",
+  "version": "0.1.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "imports": {
+    "#src/*": "./src/*",
+    "#test/*": "./test/*"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "description": "An in-process operations supervisor for @pwngh/economy-lab: rule-based detection of known incident signatures over the meter and logger ports, one guarded automatic remediation, and an append-only audit trail. It never writes ledger state.",
+  "author": "Preston Neal",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pwngh/economy-ops.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepublishOnly": "npm run check && npm run build",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "demo": "node scripts/demo.ts",
+    "demo:integrity": "node scripts/demo-integrity.ts",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format:check": "prettier -c .",
+    "format:write": "prettier -w ."
+  },
+  "peerDependencies": {
+    "@pwngh/economy-lab": "^0.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@pwngh/economy-lab": "^0.2.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-n": "^17.0.0",
+    "jiti": "^2.0.0",
+    "prettier": "^3.3.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.0.0"
+  },
+  "keywords": [
+    "operations",
+    "supervisor",
+    "incident-detection",
+    "remediation",
+    "telemetry",
+    "audit-trail",
+    "sre",
+    "economy-lab"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}
