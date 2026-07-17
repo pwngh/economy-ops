@@ -1,5 +1,7 @@
 # @pwngh/economy-ops
 
+> **Retired 2026-07-17.** This code was folded into [`@pwngh/economy-lab`](https://github.com/pwngh/economy-lab) as the built-in `./ops` entry point (`src/ops/`), where it has since grown more signatures, remediations, and a hash-chained audit trail. This repo is an archive; `@pwngh/economy-ops` was never published.
+
 An in-process operations supervisor for
 [`@pwngh/economy-lab`](https://github.com/pwngh/economy-lab): rule-based detection of
 known incident signatures over the lab's `meter` and `logger` ports, one guarded
